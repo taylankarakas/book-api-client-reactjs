@@ -1,0 +1,25 @@
+.bookcard {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.bookcard .ant-card-body {
+    position: relative;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.bookcard .ant-card-body .ant-progress {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+.bookcard .ant-card-body .ant-card-meta {
+    display: flex;
+    align-items: center;
+}
+.bookcard .ant-card-body .score-progress {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

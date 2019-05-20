@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Icon, Avatar, Progress, Col } from 'antd';
 import 'antd/dist/antd.css';
+import './BookCard.css';
 const { Meta } = Card;
 
 export default class BookCard extends Component {
@@ -9,7 +10,7 @@ export default class BookCard extends Component {
             <>
                 <Col span={6}>
                     <Card
-                        style={{ marginRight: 10, marginBottom: 10 }}
+                        className={'bookcard'}
                         cover={
                             <img
                                 alt=""
@@ -23,7 +24,10 @@ export default class BookCard extends Component {
                             title={ this.props.title }
                             description={ this.props.author_name ? this.props.author_name : 'test' }
                         />
-                        <Progress type="circle" percent={30} width={30} />
+                        <div className={'score-progress'}>
+                            <span>Imdb Score: </span>
+                            <Progress type="circle" percent={30} width={30} />
+                        </div>
                     </Card>
                 </Col>
             </>
