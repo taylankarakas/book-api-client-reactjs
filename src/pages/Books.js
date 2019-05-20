@@ -19,7 +19,6 @@ export default class Books extends Component {
     }
 
     render() {
-        console.log(this.state.bookList)
         return(
             <>
                 Books Page
