@@ -19,7 +19,7 @@ export default class Header extends Component {
     }
     render() {
         return(
-            <>
+            <header>
                 <Menu mode="horizontal" onClick={this.selectMenu} selectedKeys={[this.state.currentPage]} >
                     <Menu.Item key="/">
                         <Link to={'/'}>
@@ -34,7 +34,7 @@ export default class Header extends Component {
                         </Link>
                     </Menu.Item>
                 </Menu>
-            </>
+            </header>
         )
     }
 }
