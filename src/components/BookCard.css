@@ -18,8 +18,28 @@
     align-items: center;
 }
 .bookcard .ant-card-body .score-progress {
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.bookcard .ant-card-cover img {
+    height: 200px;
+}
+.bookcard .ant-card-body .ant-card-meta .ant-card-meta-detail .ant-card-meta-description {
+    height: 45px;
+    text-align: left;
+    width: 130px;
+    display: flex;
+    align-items: center;
+}
+.bookcard .book-detail-direction-btn {
+    text-align: right;
+    padding: 0;
+    margin-top: 20px;
+    color: #999;
+}
+.bookcard .book-detail-direction-btn:hover {
+    color: #1890ff;
 }

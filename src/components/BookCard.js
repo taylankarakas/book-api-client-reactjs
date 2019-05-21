@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Icon, Avatar, Progress, Col, message } from 'antd';
+import { Card, Icon, Avatar, Progress, Col, message, Button } from 'antd';
 import 'antd/dist/antd.css';
 import './BookCard.css';
 const { Meta } = Card;
@@ -25,9 +25,11 @@ export default class BookCard extends Component {
     }
 
     render() {
+
         const success = () => {
             message.success('This book card shared', 1);
           };
+
         return (
             <>
                 <Col span={6}>
@@ -36,7 +38,7 @@ export default class BookCard extends Component {
                         cover={
                             <img
                                 alt=""
-                                src={ this.props.image ? this.props.image : 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png' }
+                                src={ this.props.image }
                             />
                         }
                         actions={[
@@ -52,14 +54,21 @@ export default class BookCard extends Component {
                         ]}
                     >
                         <Meta
-                            avatar={<Avatar src={ this.props.author_avatar ? this.props.author_avatar : 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' } />}
-                            title={ this.props.title }
-                            description={ this.props.author_name ? this.props.author_name : 'test' }
+                            avatar={<Avatar src={ this.props.author_avatar } />}
+                            title={ '' }
+                            description={ this.props.book_title ? this.props.book_title : 'test' }
                         />
                         <div className={'score-progress'}>
                             <span>Point:</span>
-                            <Progress type="circle" percent={this.state.likeCounter * 5} width={30} />
+                            <Progress type="circle" percent={this.props.point} width={30} />
                         </div>
+                        <div className={'author-info'} onClick={ () => console.log(this.props.id) } >
+                            <span>Author: { this.props.author_name } { this.props.author_surname }</span>
+                        </div>
+                        <Button type="link" className={'book-detail-direction-btn'} >
+                            Author Detail
+                            <Icon type="right" />
+                        </Button>
                     </Card>
                 </Col>
             </>
