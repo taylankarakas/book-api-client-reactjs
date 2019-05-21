@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import Api from '../api';
 import BookCard from '../components/BookCard';
+import { connect } from 'react-redux';
+import { getBooks } from '../actions/bookActions';
 
-export default class Books extends Component {
+class Books extends Component {
     constructor() {
         super();
         this.Api = new Api();
@@ -13,15 +15,11 @@ export default class Books extends Component {
     }
 
     componentDidMount() {
-        this.Api.bookList()
-            .then((res) => this.setState({
-                bookList: res
-            }))
-            .catch((err) => console.log(err))
+        this.props.getbook()
     }
 
     render() {
-        console.log(this.state.bookList)
+        console.log(this.props.books)
         return(
             <main style={{ marginTop: 40 }}>
                 <Row>
@@ -37,3 +35,13 @@ export default class Books extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return state;
+}
+
+const mapDispatchToProps = {
+    getbook: getBooks
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Books);
