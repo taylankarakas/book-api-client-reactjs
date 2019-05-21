@@ -25,7 +25,7 @@ export default class BookCard extends Component {
                             description={ this.props.author_name ? this.props.author_name : 'test' }
                         />
                         <div className={'score-progress'}>
-                            <span>Imdb Score: </span>
+                            <span>Point:</span>
                             <Progress type="circle" percent={30} width={30} />
                         </div>
                     </Card>

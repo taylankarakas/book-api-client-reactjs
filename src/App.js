@@ -5,6 +5,10 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Books from './pages/Books';
 
+import { Provider } from 'react-redux';
+import reduxThunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
+
 function App() {
   return (
     <BrowserRouter>
