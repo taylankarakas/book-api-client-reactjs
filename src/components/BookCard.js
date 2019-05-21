@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Icon, Avatar, Progress, Col, message, Button } from 'antd';
+import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './BookCard.css';
 const { Meta } = Card;
@@ -66,8 +67,10 @@ export default class BookCard extends Component {
                             <span>Author: { this.props.author_name } { this.props.author_surname }</span>
                         </div>
                         <Button type="link" className={'book-detail-direction-btn'} >
-                            Author Detail
-                            <Icon type="right" />
+                            <Link to={`/detail/${ this.props.id }`}>
+                                Author Detail
+                                <Icon type="right" />
+                            </Link>
                         </Button>
                     </Card>
                 </Col>
