@@ -1,0 +1,8 @@
+.spin-wrapper .ant-spin-container {
+    display: none;
+    opacity: 0;
+}
+
+.spin-wrapper .ant-spin-nested-loading {
+    margin-top: 25%
+}

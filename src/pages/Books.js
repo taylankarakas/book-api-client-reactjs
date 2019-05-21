@@ -1,34 +1,31 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
-import Api from '../api';
 import BookCard from '../components/BookCard';
+import Spin from '../components/Spin';
 import { connect } from 'react-redux';
 import { getBooks } from '../actions/bookActions';
 
 class Books extends Component {
-    constructor() {
-        super();
-        this.Api = new Api();
-        this.state =  {
-            bookList: []
-        }
-    }
 
     componentDidMount() {
         this.props.getbook()
     }
 
     render() {
-        console.log(this.props.books)
+        const { list } = this.props.books;
+        const books = list.map(item => {
+            return (
+                <BookCard
+                    key={item._id}
+                    author_name= {'taylan'}
+                />
+            )
+        } )
         return(
             <main style={{ marginTop: 40 }}>
                 <Row>
                     <Col span={16} offset={4}>
-                        <BookCard />
-                        <BookCard />
-                        <BookCard />
-                        <BookCard />
-                        <BookCard />
+                        { this.props.books.status === 'loaded' ? books : <Spin /> }
                     </Col>
                 </Row>
             </main>

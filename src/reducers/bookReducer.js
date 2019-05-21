@@ -5,7 +5,7 @@ const initialState = {
 
 export default function bookReducer (state = initialState, { type, payload }) {
     switch (type) {
-        case 'getBook':
+        case 'getBookSuccess':
             return {
                 ...state,
                 list: payload,

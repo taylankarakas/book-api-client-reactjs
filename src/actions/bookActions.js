@@ -7,7 +7,7 @@ export const getBooks = () => {
         api.bookList()
             .then((response) => {
                 dispatch({
-                    type: 'getBook',
+                    type: 'getBookSuccess',
                     payload: response
                 })
             })
