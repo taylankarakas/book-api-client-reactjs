@@ -14,6 +14,10 @@ class Api {
     bookList = (endpoint = 'books') => {
         return this.callApi(this.api + endpoint)
     }
+
+    bookDetail = (book_id, endpoint = 'books') => {
+        return this.callApi(this.api + endpoint + '/' + book_id)
+    }
 }
 
 export default Api;

@@ -17,6 +17,7 @@ export default class Header extends Component {
             currentPage: e.key
         })
     }
+
     render() {
         return(
             <header>

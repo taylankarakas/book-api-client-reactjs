@@ -13,7 +13,6 @@ class Books extends Component {
 
     render() {
         const { list } = this.props.books;
-        console.log(list)
         const books = list.map(item => {
             return (
                 <BookCard

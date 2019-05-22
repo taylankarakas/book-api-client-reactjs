@@ -13,3 +13,15 @@ export const getBooks = () => {
             })
     }
 }
+
+export const getBookDetail = (id) => {
+    return dispatch => {
+        api.bookDetail(id)
+            .then((response) => {
+                dispatch({
+                    type: 'getBookDetail',
+                    payload: response
+                })
+            })
+    }
+}

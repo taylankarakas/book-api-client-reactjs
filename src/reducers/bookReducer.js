@@ -1,6 +1,7 @@
 const initialState = {
     list: [],
-    status: 'loading'
+    status: 'loading',
+    bookDetail: {}
 }
 
 export default function bookReducer (state = initialState, { type, payload }) {
@@ -11,7 +12,12 @@ export default function bookReducer (state = initialState, { type, payload }) {
                 list: payload,
                 status: 'loaded'
             }
-    
+        case 'getBookDetail':
+            return {
+                ...state,
+                bookDetail: payload
+            }    
+
         default:
             return state;
     }
