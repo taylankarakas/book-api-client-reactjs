@@ -13,6 +13,7 @@ class Detail extends Component {
     render() {
         const { id } = this.props.match.params;
         const { list } = this.props.books;
+        console.log(this.props.books)
 
         const book = list.map(item => {
             if(item._id === id) {
@@ -20,10 +21,14 @@ class Detail extends Component {
                     <DetailCard
                         key = { item._id}
                         avatar = { item.author.avatar }
-                        title = { item.title }
-                        description = { `${ item.author.name }  ${ item.author.surname }` }
+                        title = {`${ item.title } (${ item.year })`}
+                        description = {`
+                            ${ item.author.name }
+                            ${ item.author.surname },
+                            ${ item.author.age }
+                            `}
                         year = { item.year }
-                        loading = { this.props.books.status === 'loading' ? true : false }
+                        point = { item.point }
                     />
                 )
             }
@@ -31,7 +36,8 @@ class Detail extends Component {
         return(
             <main style={{ marginTop: 40 }}>
                 <Row>
-                    <Col span={8} offset={4}>
+                    <Col span={16} offset={4}>
+                        <h1>Book Detail:</h1>
                         { book }
                     </Col>
                 </Row>

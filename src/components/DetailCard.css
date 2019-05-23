@@ -6,3 +6,9 @@
     margin-top: 30px;
     overflow: hidden;
 }
+
+.detail-card-progress {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

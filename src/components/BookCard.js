@@ -26,7 +26,6 @@ export default class BookCard extends Component {
     }
 
     render() {
-
         const success = () => {
             message.success('This book card shared', 1);
           };
