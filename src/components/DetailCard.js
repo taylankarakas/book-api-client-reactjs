@@ -1,47 +1,46 @@
 import React, { Component } from 'react';
 import { Skeleton, Card, Avatar, Icon, Collapse } from 'antd';
+import './DetailCard.css';
 
 const { Meta } = Card;
 const Panel = Collapse.Panel;
 
 export default class DetailCard extends Component {
+    constructor() {
+        super();
+        this.state = {
+            loading: true
+        }
+    }
 
-    state = {
-        loading: false,
-      };
+    componentWillMount() {
+        setTimeout(() => {
+            this.setState({ loading: false })
+        }, 500);
+    }
 
     render() {
-
-        const customPanelStyle = {
-            background: '#f7f7f7',
-            borderRadius: 4,
-            marginBottom: 24,
-            border: 0,
-            marginTop: 30,
-            overflow: 'hidden',
-          };
-
-        const { loading } = this.state;
-
+        console.log('render')
         return(
             <>
                 <Card
                     actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-                    >
-                    <Skeleton loading={loading} avatar active>
+                >
+                    <Skeleton loading={ this.state.loading } avatar active paragraph={{ rows: 2 }}>
                         <Meta
-                            avatar={
+                            avatar = {
                                 <Avatar src={ this.props.avatar } style={{ width: 70, height: 70 }} />
                             }
-                            title="Card title"
-                            description="This is the description"
+                            title = { this.props.title }
+                            description = { this.props.description }
                         />
+                        <span>{ this.props.year }</span>
                         <Collapse
                             bordered={false}
                             expandIcon={({ isActive }) => <Icon type="caret-right" rotate={isActive ? 90 : 0} />}
                         >
-                                <Panel header="This is panel header 1" key="1" style={customPanelStyle}>
-                                    <p>ada</p>
+                                <Panel class={ 'panel' } header="book summary" key="1">
+                                    <p>test</p>
                                 </Panel>
                         </Collapse>
                     </Skeleton>

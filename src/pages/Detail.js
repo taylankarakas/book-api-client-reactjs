@@ -2,41 +2,37 @@ import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import DetailCard from '../components/DetailCard';
 import { connect } from 'react-redux';
-import { getBookDetail } from '../actions/bookActions';
+import { getBookDetail, getBooks } from '../actions/bookActions';
 import { getAuthors } from '../actions/authorActions';
 
 class Detail extends Component {
-    constructor() {
-        super();
-        this._findTheAuthorOfBook = this._findTheAuthorOfBook.bind(this);
-    }
-
     componentWillMount = () => {
-        const { id } = this.props.match.params;
-        this.props.getBookDetail(id);
-        this.props.getAuthors();
+        this.props.getBooks();
     };
 
-    _findTheAuthorOfBook() {
-        const { author_id } = this.props.books.bookDetail;
-        this.props.authors.authorList.map(item => {
-            if(item._id === author_id) {
-                console.log(item)
-                return;
+    render() {
+        const { id } = this.props.match.params;
+        const { list } = this.props.books;
+
+        const book = list.map(item => {
+            if(item._id === id) {
+                return (
+                    <DetailCard
+                        key = { item._id}
+                        avatar = { item.author.avatar }
+                        title = { item.title }
+                        description = { `${ item.author.name }  ${ item.author.surname }` }
+                        year = { item.year }
+                        loading = { this.props.books.status === 'loading' ? true : false }
+                    />
+                )
             }
         })
-    }
-
-    render() {
-        console.log(this.props.authors)
         return(
             <main style={{ marginTop: 40 }}>
                 <Row>
                     <Col span={8} offset={4}>
-                        <DetailCard 
-                            avatar= { this.props.books.bookDetail.image }
-                        />
-                        { this._findTheAuthorOfBook() }
+                        { book }
                     </Col>
                 </Row>
             </main>
@@ -49,6 +45,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
+    getBooks : getBooks,
     getBookDetail : getBookDetail,
     getAuthors : getAuthors
 }

@@ -20,7 +20,7 @@ function App() {
         <Header />
         <Route path={'/'} exact component={ Home } />
         <Route path={'/books'} exact component={ Books } />
-        <Route path={'/detail/:id'} exact component={ Detail } />
+        <Route path={'/books/detail/:id'} exact component={ Detail } />
       </BrowserRouter>
     </Provider>
   );

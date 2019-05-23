@@ -67,7 +67,7 @@ export default class BookCard extends Component {
                             <span>Author: { this.props.author_name } { this.props.author_surname }</span>
                         </div>
                         <Button type="link" className={'book-detail-direction-btn'} >
-                            <Link to={`/detail/${ this.props.id }`}>
+                            <Link to={`/books/detail/${ this.props.id }`}>
                                 Book Detail
                                 <Icon type="right" />
                             </Link>
