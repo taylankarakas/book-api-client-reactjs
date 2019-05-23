@@ -18,6 +18,10 @@ class Api {
     bookDetail = (book_id, endpoint = 'books') => {
         return this.callApi(this.api + endpoint + '/' + book_id)
     }
+
+    authorList= (endpoint= 'authors') => {
+        return this.callApi(this.api + endpoint)
+    }
 }
 
 export default Api;

@@ -21,7 +21,7 @@ export default class BookCard extends Component {
         if(!this.state.like) {
             this.setState({ like: true, likeCounter: likeCount + 1 });
             return;
-        } 
+        }
         this.setState({ like: false, likeCounter: likeCount -= 1 });
     }
 
@@ -68,7 +68,7 @@ export default class BookCard extends Component {
                         </div>
                         <Button type="link" className={'book-detail-direction-btn'} >
                             <Link to={`/detail/${ this.props.id }`}>
-                                Author Detail
+                                Book Detail
                                 <Icon type="right" />
                             </Link>
                         </Button>
