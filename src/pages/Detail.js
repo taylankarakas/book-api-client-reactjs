@@ -29,6 +29,7 @@ class Detail extends Component {
                             `}
                         year = { item.year }
                         point = { item.point }
+                        summary = { item.summary }
                     />
                 )
             }

@@ -1,0 +1,6 @@
+.ant-modal {
+    width: 300px!important;
+}
+.ant-modal .ant-modal-content .ant-modal-header {
+    text-align: center
+}

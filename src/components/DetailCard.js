@@ -37,7 +37,7 @@ export default class DetailCard extends Component {
                         expandIcon={({ isActive }) => <Icon type="caret-right" rotate={isActive ? 90 : 0} />}
                     >
                             <Panel class={ 'panel' } header="book summary" key="1">
-                                <p>test</p>
+                                <p>{ this.props.summary || 'test' }</p>
                             </Panel>
                     </Collapse>
                     <div className={'detail-card-progress'}>
